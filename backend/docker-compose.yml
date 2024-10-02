@@ -1,0 +1,63 @@
+version: "3.1"
+services:
+  # react-client:
+  #   build:
+  #     context: ./client
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - 3000:3030
+  #   container_name: hackathon-react-ui
+  #   networks:
+  #     - mern-stack-net
+  #   depends_on:
+  #     - express-server
+  #   tty: true
+  #   stdin_open: true
+  express-server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - 3080:8080
+    container_name: hackathon-express-server
+    networks:
+      - mern-stack-net
+    environment:
+      - MONGODB_URI=${MONGODB_URI}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    # depends_on:
+    #    - mongo
+
+  # mongo:
+  #   image: mongo
+  #   container_name: hackathon-mongodb
+  #   ports:
+  #     - 27017:27017
+  #   networks:
+  #     - mern-stack-net
+  #   volumes:
+  #     - mongo-data:/data/db
+
+  # mongo-express:
+  #   image: mongo-express
+  #   container_name: hackathon-mongo-express
+  #   restart: always
+  #   ports:
+  #     - 8082:8081
+  #   networks:
+  #     - mern-stack-net
+  #   environment:
+  #     ME_CONFIG_MONGODB_URL: mongodb://mongo:27017/test
+  #     ME_CONFIG_BASICAUTH_USERNAME: '123'  # 你的用戶名
+  #     ME_CONFIG_BASICAUTH_PASSWORD: '123'  # 你的密碼
+  #     ME_CONFIG_SITE_SSL_ENABLED: 'true'
+  #   depends_on:
+  #     - mongo
+  
+networks:
+  mern-stack-net:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local

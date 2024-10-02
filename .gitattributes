@@ -1,0 +1,5 @@
+Manual/Example_database/hackathon.users.json filter=lfs diff=lfs merge=lfs -text
+Manual/Example_database/hackathon.courses.json filter=lfs diff=lfs merge=lfs -text
+Manual/Example_database/hackathon.sessions.json filter=lfs diff=lfs merge=lfs -text
+Manual/Example_database/hackathon.shenusers.json filter=lfs diff=lfs merge=lfs -text
+backend/server/utils/Processed_Coursera.csv filter=lfs diff=lfs merge=lfs -text
