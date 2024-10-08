@@ -40,9 +40,7 @@
        * now a database `hackathon` is created in the cluster
        * with a collection(a.k.a folder) `courses` created , stores all the information of the course
 
-   6. Under backend folder, in docker-compose.yml , change service-->express-server-->environment-->MONGODB_URI to equal "your connection string"
-
-   7. On the leftside of the menu on Atlas dashboard , press "Atlas Search" , ( Or press browse collection on the cluster info , and then select Atlas Search)
+   6. On the leftside of the menu on Atlas dashboard , press "Atlas Search" , ( Or press browse collection on the cluster info , and then select Atlas Search)
        * Then press "CREATE SEARCH INDEX" button 
        * Under Atlas Vector Search , select JSON editor
        * Select hackathon/courses , and "vector_index" as Index name
@@ -59,7 +57,7 @@
        ]
        }
        ```
-       * Then press Create Search Index
+       * Then select Create Search Index
        * This search index is for the dependency of the "findSimilarDocuments.js" pipeline, to enable vector search
 
 ## Run Project
